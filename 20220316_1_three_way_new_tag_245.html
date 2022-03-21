@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <p>abc</p>
+    <div class="inner"></div>
+    <div class="create"></div>
+    <script>
+
+        //1.docuement.write()
+        //window.onload页面加载完毕之后
+        // window.onload = function () {
+        //     document.write('<div>123</div>')
+        // }
+        var btn = document.querySelector('button')
+        // btn.onclick = function () {
+        //     //页面文档流执行完毕，页面重绘
+        //     document.write('<div>123</div>')
+
+        // }
+        //2. innerHTML 
+        var inner = document.querySelector('.inner')
+        inner.innerHTML = '<a href="javascript:;">百度</a>'
+
+        //3. document.createElement()
+        var create = document.querySelector('.create')
+        var a = document.createElement('a')
+        create.appendChild(a)
+
+    </script>
+</body>
+
+</html>

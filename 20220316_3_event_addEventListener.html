@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>苍井空</button>
+    <button>斯嘉丽约翰逊</button>
+    <button>IE9 attachEvent</button>
+    <script>
+        var btns = document.querySelectorAll('button')
+
+        //1.传统注册方式
+        btns[0].onclick = function () {
+            alert('我是苍井空')
+        }
+
+        btns[0].onclick = function () {
+            alert('斯嘉丽约翰逊')
+        }
+
+        //2.时间侦听注册事件 addEventListener(type, listener[,useCapture])
+        //（1）type 为字符串，加引号，不加on
+        //（2）同一个元素可以添加多个侦听器
+        btns[1].addEventListener('click', function () {
+            alert('全裸11')
+        })
+        btns[1].addEventListener('click', function () {
+            alert('全裸22')
+        })
+
+        //3、attachEvent 只给IE9之前使用，仅作了解使用
+        btns[2].attachEvent('onclick', function () {
+            alert('IE9之前')
+        })
+
+    </script>
+</body>
+
+</html>

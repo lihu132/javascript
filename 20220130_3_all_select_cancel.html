@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        table {
+            margin: 200px auto;
+            border-collapse: collapse;
+        }
+
+
+        td,
+        th {
+            padding: 5px 20px;
+            border: 1px solid #fff;
+
+        }
+
+        thead {
+            background-color: skyblue;
+        }
+
+        tbody {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>商品</th>
+                <th>价钱</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>iPhone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>iPad Pro</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>iPad Air</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Apple Watch</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var checkBoxesTop = document.querySelector('thead').querySelector('input')
+        var checkBoxesBottom = document.querySelector('tbody').querySelectorAll('input')
+
+        //1.全选和取消全选
+        checkBoxesTop.onclick = function () {
+            // if (checkBoxesTop.checked == true) {
+            //     for (var i = 0; i < checkBoxesBottom.length; i++) {
+            //         checkBoxesBottom[i].checked = 'checked'
+            //     }
+            // }
+            // else {
+            //     for (var i = 0; i < checkBoxesBottom.length; i++) {
+            //         checkBoxesBottom[i].checked = ''
+            //     }
+            // }
+            for (var i = 0; i < checkBoxesBottom.length; i++) {
+                checkBoxesBottom[i].checked = this.checked
+            }
+        }
+
+
+        //2,手动全选和手动取消全选
+        for (var i = 0; i < checkBoxesBottom.length; i++) {
+            checkBoxesBottom[i].onclick = function () {
+                // for (var i = 0; i < checkBoxesBottom.length; i++) {
+                //     if (checkBoxesBottom[i].checked != true) {
+                //         checkBoxesTop.checked = ''
+                //         break
+                //     }
+                //     else if (i == checkBoxesBottom.length - 1) {
+                //         checkBoxesTop.checked = 'checked'
+                //     }
+                // }
+                var flag = true
+                for (var i = 0; i < checkBoxesBottom.length; i++) {
+                    if (!checkBoxesBottom[i].checked) {
+                        flag = false
+                        break
+                    }
+                }
+                checkBoxesTop.checked = flag
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

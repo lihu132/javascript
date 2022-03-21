@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function countDown(time) {
+            var nowTime = +new Date()
+            var dueTime = +new Date(time)
+            var count = (dueTime - nowTime) / 1000
+            var d = parseInt(count / 60 / 60 / 24)
+            d = d < 10 ? '0' + d : d
+            var h = parseInt(count / 60 / 60 % 24)
+            h = h < 10 ? '0' + h : h
+            var m = parseInt(count / 60 % 60)
+            m = m < 10 ? '0' + m : m
+            var s = parseInt(count % 60)
+            s = s < 10 ? '0' + s : s
+
+            return d + '天' + h + '时' + m + '分' + s + '秒'
+        }
+
+        console.log(countDown('2021-12-14 24:00:00'));
+    </script>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?tomleg');
+            src: url('fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?tomleg') format('truetype'),
+                url('fonts/icomoon.woff?tomleg') format('woff'),
+                url('fonts/icomoon.svg?tomleg#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+            margin: 50px auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .box h1 {
+            color: white;
+        }
+
+        .box h3 {
+            margin: 10px 0 10px;
+            color: grey;
+        }
+
+
+        .thunder::before {
+            content: '\ed74';
+            font-family: 'icomoon';
+            font-size: 40px;
+            color: white;
+        }
+
+        .box p {
+            margin-top: 10px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>京东秒杀</h1>
+        <h3>FLASH DEALS</h3>
+        <div class="thunder"></div>
+        <p>本长距离结束还剩</p>
+
+    </div>
+</body>
+
+</html>

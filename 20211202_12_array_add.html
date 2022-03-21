@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = ['red', 'green', 'blue']
+        console.log(arr.length);
+
+        // 1.直接修改数组长度
+        arr.length = 5
+        console.log(arr);
+
+        // 2.追加数组元素,直接追加，java不行，声明数组时就固定了长度
+        var arr1 = ['red', 'green', 'blue']
+        arr1[3] = 'blue'
+        console.log(arr1);
+
+        //不要直接给数组名赋值，否则里面的数组元素都没有了,直接全部覆盖
+        arr1 = '有点儿意思'
+        console.log(arr1);
+        console.log(arr1[0]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

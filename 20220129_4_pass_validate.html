@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* /* input {
+            outline: none;
+        }
+
+        .box {
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .box span {
+            color: #999; 
+        }*/
+        div {
+            width: 600px;
+            margin: 100px auto;
+        }
+
+        .message {
+            display: inline-block;
+            font-size: 12px;
+            color: #999;
+            background: url(images/mess.png) no-repeat left center;
+            padding-left: 20px;
+        }
+
+        .wrong {
+            color: red;
+            background-image: url(images/wrong.png);
+        }
+
+        .right {
+            color: green;
+            background-image: url(images/right.png);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="box">
+        <input type="password">
+        <img src="images/mess.png" alt="">
+        <span>请输入6-16位密码</span>
+    </div>
+
+    <script>
+        var pwd = document.querySelector('input')
+        var img = document.querySelector('img')
+        var span = document.querySelector('span')
+        pwd.onblur = function () {
+            if (pwd.value.length >= 6 && pwd.value.length <= 16) {
+                img.src = 'images/right.png'
+                span.innerHTML = '格式正确'
+            }
+            else {
+                img.src = 'images/wrong.png'
+                span.innerHTML = '格式不正确'
+            }
+        } 
+    </script>-->
+    <div class="register">
+        <input type="password" class="ipt">
+        <p class="message">请输入6~16位密码</p>
+    </div>
+
+    <script>
+        var ipt = document.querySelector('.ipt')
+        var message = document.querySelector('.message')
+
+        ipt.onblur = function () {
+            if (this.value.length < 6 || this.value.length > 16) {
+                message.className = message.className + ' wrong'
+                message.innerHTML = '您输入的位数不对要求6~16位'
+            }
+            else {
+                message.className = message.className + ' right'
+                message.innerHTML = '您输入的正确'
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

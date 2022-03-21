@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //数组转换为字符串
+        //1.toString()
+        var arr = [1, 2, 3]
+        console.log(arr.toString());
+        //2.join(分隔符)
+        var arr1 = ['green', 'blue', 'pink']
+        console.log(arr1.join('&'));
+        console.log(arr1.join('-'));
+
+        //1.concat()
+        var arr2 = [1, 2, 3]
+        var arr3 = [4, 5, 6]
+        console.log(arr2.concat(arr3));
+
+        //2.slice(start, end) return new arr
+        console.log(arr2.slice(1, 2));
+
+        //3.splice(start, deletCount, replace) return deleted element
+        console.log(arr2.splice(1, 1, 4));
+        console.log(arr2);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

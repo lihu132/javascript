@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Date() 是一个构造函数，必须使用new来创建对象
+        var arr = new Array()
+        var obj = new Object()
+
+        //如果没有参数，返回当前系统的当前时间
+        var date = new Date();
+        console.log(date);
+        console.log(date.getFullYear());
+        console.log(date.getMonth() + 1); //月份从0-11,所以少一个月，需要+1
+        console.log(date.getDate()); //返回几号
+        console.log(date.getDay()); //返回周几， 周日0， 周一1， 周六6
+        console.log(date.getHours()); //返回小时
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+        var i = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
+        console.log(i);
+
+
+
+        console.log("-----------------------------------");
+        //参数常用的写法 数字型 2021, 12, 14  或者是字符串“2021-12-14 8:8:8”
+        var date1 = new Date(2021, 12, 14)
+        console.log(date1);//返回的是明年一月不是今年12月
+
+        var date2 = new Date("2021-12-14 8:8:8")
+        console.log(date2);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

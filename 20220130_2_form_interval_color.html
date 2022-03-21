@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 0;
+            text-align: center;
+            border-collapse: collapse;
+            padding: 5px 20px;
+        }
+
+        table {
+            margin: 200px auto;
+        }
+
+        th {
+            font-weight: 700;
+            font-size: 18px;
+            background-color: skyblue;
+        }
+
+        td {
+            font-weight: 400;
+            font-size: 14px;
+            /* background-color: pink; */
+        }
+
+        table tr:nth-child(n+2) {
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>代码</th>
+            <th>名称</th>
+            <th>最新公布净值</th>
+            <th>累计净值</th>
+            <th>前单位净值</th>
+            <th>净值增长率</th>
+        </tr>
+        <tr>
+            <td><a href="">003526</a></td>
+            <td><a href="">农银金穗3个月定期开放债券</a></td>
+            <td><a href="">1.075</a></td>
+            <td><a href="">1.079</a></td>
+            <td><a href="">1.074</a></td>
+            <td><a href="">+0.047%</a></td>
+        </tr>
+        <tr>
+            <td><a href="">003526</a></td>
+            <td><a href="">农银金穗3个月定期开放债券</a></td>
+            <td><a href="">1.075</a></td>
+            <td><a href="">1.079</a></td>
+            <td><a href="">1.074</a></td>
+            <td><a href="">+0.047%</a></td>
+        </tr>
+        <tr>
+            <td><a href="">003526</a></td>
+            <td><a href="">农银金穗3个月定期开放债券</a></td>
+            <td><a href="">1.075</a></td>
+            <td><a href="">1.079</a></td>
+            <td><a href="">1.074</a></td>
+            <td><a href="">+0.047%</a></td>
+        </tr>
+        <tr>
+            <td><a href="">003526</a></td>
+            <td><a href="">农银金穗3个月定期开放债券</a></td>
+            <td><a href="">1.075</a></td>
+            <td><a href="">1.079</a></td>
+            <td><a href="">1.074</a></td>
+            <td><a href="">+0.047%</a></td>
+        </tr>
+        <tr>
+            <td><a href="">003526</a></td>
+            <td><a href="">农银金穗3个月定期开放债券</a></td>
+            <td><a href="">1.075</a></td>
+            <td><a href="">1.079</a></td>
+            <td><a href="">1.074</a></td>
+            <td><a href="">+0.047%</a></td>
+        </tr>
+    </table>
+    <script>
+        var trs = document.querySelector('table').querySelectorAll('tr')
+        for (var i = 1; i < trs.length; i++) {
+            trs[i].onmouseover = function () {
+                this.style.backgroundColor = '#ccc'
+            }
+
+            trs[i].onmouseout = function () {
+                this.style.backgroundColor = ''
+            }
+        }
+    </script>
+</body>
+
+</html>

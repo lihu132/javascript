@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function reverse(arr) {
+            if (arr instanceof Array) {
+                var newArr = []
+                for (var i = arr.length - 1; i >= 0; i--) {
+                    newArr[newArr.length] = arr[i]
+                }
+                return newArr
+            }
+            else {
+                return "it's not array"
+            }
+
+        }
+
+        console.log(reverse([1, 2, 3]));
+        console.log(reverse(1, 2, 3));
+
+        //检测是否为数组 1.instanceof
+        var arr = []
+        var obj = {}
+        console.log(arr instanceof Array);
+        console.log(obj instanceof Array);
+
+        // 2. Array.isArray() H5新增的方法
+        console.log(Array.isArray(arr));
+        console.log(Array.isArray(obj));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

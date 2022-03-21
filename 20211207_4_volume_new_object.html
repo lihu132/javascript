@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //构造函数批量新建object
+        //构造函数吧对象里的共同的属性和方法封装到函数里面
+        //构造函数首字母大写
+        //js的构造函数，类似于java里面的class
+        function Star(uname, age, gender) {
+            this.name = uname
+            this.age = age
+            this.gender = gender
+            this.sing = function (song) {
+                console.log(song);
+            }
+        }
+
+
+        //对象是特指一个具体事物
+        var ldh = new Star('刘德华', 18, '男');
+        console.log(ldh);
+        ldh.sing('冰雨')
+
+        var zxy = new Star('张学友', 19, '男')
+        console.log(zxy.name);
+        zxy.sing('李香兰')
+
+        function KingsGlory(name, type, hp, attack) {
+            this.name = name
+            this.type = type
+            this.hp = hp
+            this.attack = attack
+        }
+
+        var lianpo = new KingsGlory('廉颇', '力量型', 500, '近战')
+        var houyi = new KingsGlory('后裔', '射手型', 100, '远程')
+
+        console.log(lianpo.attack);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

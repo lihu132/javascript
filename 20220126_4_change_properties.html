@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 300px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button id="1">张学友</button>
+    <button id="2">刘德华</button><br>
+    <img src="../html+css/images/white1080x1080.jpg" alt="" title="white">
+
+
+    <script>
+        //获取元素
+        var img = document.querySelector('img')
+        var btn1 = document.getElementById('1')
+        var btn2 = document.getElementById('2')
+
+        //注册事件
+        btn1.onclick = function () {
+            img.src = '../html+css/images/yellow766x1024.jpg'
+            img.title = 'yellow'
+        }
+
+        btn2.onclick = function () {
+            img.src = '../html+css/images/white1080x1080.jpg'
+            img.title = 'white'
+        }
+    </script>
+</body>
+
+</html>

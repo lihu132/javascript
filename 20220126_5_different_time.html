@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 686px;
+            height: 234px;
+            margin: 50px auto;
+            background: url(../html+css/images/hello.jpg) no-repeat -45px -153px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        var div = document.querySelector('div')
+        console.dir(div)
+
+        var time = new Date()
+        var now = time.getHours()
+        // var now = 15
+        console.log(now);
+        if (now >= 12 && now < 18) {
+            div.style.backgroundPositionY = '-407px'
+        }
+        else if (now >= 18 || now < 6) {
+            div.style.backgroundPositionY = '-665px'
+        }
+
+
+            // div.style.height = '500px'
+
+        // div.onclick = function () {
+        //     div.style.backgroundPositionY = '-665px'
+        // }
+    </script>
+</body>
+
+</html>

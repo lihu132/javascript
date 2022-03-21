@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var exit = false
+        while (!exit) {
+            var select = prompt('欢迎使用简易计算器：\n1.加法运算；\n2.减法运算；\n3.乘法运算；\n4.除法运算；\n5.退出；\n请输入您的选项：')
+            switch (select) {
+                case '1':
+                    var i = parseFloat(prompt('请输入第一个数字'))
+                    var j = parseFloat(prompt('请输入第二个数字'))
+                    var result = i + j
+                    alert(i + '+' + j + '=' + result)
+                    break;
+                case '2':
+                    var i = parseFloat(prompt('请输入第一个数字'))
+                    var j = parseFloat(prompt('请输入第二个数字'))
+                    var result = i - j
+                    alert(i + '-' + j + '=' + result)
+                    break;
+                case '3':
+                    var i = parseFloat(prompt('请输入第一个数字'))
+                    var j = parseFloat(prompt('请输入第二个数字'))
+                    var result = i * j
+                    alert(i + 'x' + j + '=' + result)
+                    break;
+                case '4':
+                    var i = parseFloat(prompt('请输入第一个数字'))
+                    var j = parseFloat(prompt('请输入第二个数字'))
+                    var result = i / j
+                    alert(i + '/' + j + '=' + result)
+                    break;
+                case '5':
+                    exit = true
+                    break;
+                default:
+                    alert('错误选项')
+                    break
+            }
+        }
+
+        alert('您已退出，出门左转有免费的佟丽娅等待您的使用')
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

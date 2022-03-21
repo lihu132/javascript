@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = 'oabcoefoxyozzoppo'
+        function positionCount(str, alpha) {
+            var count = 0
+            var position = ''
+            for (var i = 0; i < str.length; i++) {
+                if (str.indexOf(alpha, i) >= 0) {
+                    count++
+                    position += str.indexOf(alpha, i) + ' slot '
+                    i = str.indexOf(alpha, i)
+                }
+            }
+
+            return count == 0 ? 'there is no ' + alpha : alpha + ' in ' + position + ' ' + count + 'times'
+        }
+
+        console.log(positionCount(str, 'o'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

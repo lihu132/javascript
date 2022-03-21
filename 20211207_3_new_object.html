@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Script>
+        var obj = new Object();
+        obj.uname = '张三丰'
+        obj.age = 18
+        obj.gender = 'male'
+        obj.sayHi = function () { console.log('hi~'); }
+
+        //利用=号赋值
+        //每个属性和方法之间用分号结束
+        console.log(obj);
+        console.log(obj['age']);
+
+        var naruto = new Object();
+        naruto.name = '鸣人'
+        naruto.gender = 'male'
+        naruto.age = 18
+        naruto.skills = '影分身术'
+
+        console.log(naruto['skills']);
+        console.log(naruto);
+    </Script>
+</head>
+
+<body>
+
+</body>
+
+</html>

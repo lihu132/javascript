@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var balance = 100
+        var exit = false
+        while (!exit) {
+            var i = prompt('请输入您要的操作\n1.存钱\n2.取钱\n3.显示余额\n4.退出')
+            switch (i) {
+                case '1':
+                    var deposit = prompt('请您输入存的钱数：')
+                    balance += parseFloat(deposit)
+                    alert('您现在的钱数是：' + balance)
+                    break
+                case '2':
+                    var withdraw = prompt('请您输入取的钱数：')
+                    balance -= parseFloat(withdraw)
+                    alert('您现在的钱数是：' + balance)
+                    break
+                case '3':
+                    alert('您现在的钱数是：' + balance)
+                    break
+                case '4':
+                    exit = true
+                    break
+                default:
+                    alert('wrong')
+                    break
+            }
+        }
+        alert('您正在退出退出！')
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

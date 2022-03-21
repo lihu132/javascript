@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,
+        p {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>123</p>
+    <script>
+        var btn = document.querySelector('button')
+        var div = document.querySelector('div')
+        btn.onclick = function () {
+            // var time = +new Date()
+            // var stamp = date(time)
+            div.innerHTML = getDate()
+            // div.innerHTML = getDate()
+        }
+
+        function getDate() {
+            // time = time / 1000
+            // var year = 1970 + parseInt(time / 365 / 24 / 60 / 60)
+            // var month = parseInt(time / 60 / 60 / 24 % 365 / 31)
+            // var date = parseInt(time / 60 / 60 / 24 % 365 % 30)
+            // var hour = parseInt(time / 60 / 60 / 24 % 24)
+            // var minute = parseInt(time / 60 % 60)
+            // var second = parseInt(time % 60)
+            var time = new Date()
+            var year = time.getFullYear()
+            var month = time.getMonth() + 1
+            var date = time.getDate()
+            var hour = time.getHours()
+            var minute = time.getMinutes()
+            var second = time.getSeconds()
+            return year + '-' + month + '-' + date + ' ' + hour + ':' + minute + ':' + second
+
+        }
+
+        //元素可以不用添加事件
+        var p = document.querySelector('p')
+        p.innerText = getDate()
+    </script>
+</body>
+
+</html>

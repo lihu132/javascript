@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log((num));
+
+        // js解释器两步 1.预解析 2.代码运行
+        // 预解析会把所有的var 和 function 提升到当前作用域的最前面
+        // 然后顺序执行代码
+
+        // 预解析 分为 变量预解析（变量提升）和函数预解析（函数提升）
+
+        // 变量提升，把所有变量声明提升到当前作用域最前面，不提升赋值操作
+        // 函数提升，把所有函数声明提升到当前作用域最前面，不调用函数
+
+        var num = 10
+        fun()
+        function fun() {
+            console.log(num);
+            var num = 20
+        }
+
+        console.log('-----------------');
+
+        f1()
+        console.log(c);
+        console.log(b);
+        console.log(a);
+
+        function f1() {
+            var a = b = c = 9
+            //相当于 var a=9;b=9;c=9; b和c变成了全局变量
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

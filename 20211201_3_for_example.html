@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var sum = 0
+        for (var i = 1; i <= 100; i++) {
+            sum += i
+        }
+        var average = sum / 100
+        console.log('average is ' + average);
+
+        var sum_odd = 0
+        var sum_even = 0
+
+        for (var i = 1; i <= 100; i++) {
+            if (i % 2 == 0) {
+                sum_even += i
+            }
+            else {
+                sum_odd += i
+            }
+        }
+        console.log('sum_even is ' + sum_even);
+        console.log('sum_odd is ' + sum_odd);
+
+        var sum_3 = 0
+        for (var i = 1; i <= 100; i++) {
+            if (i % 3 == 0) {
+                sum_3 += i
+            }
+        }
+        console.log('sum_3 is ' + sum_3);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

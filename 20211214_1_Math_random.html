@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Math.random() 返回一个随机的浮点 [0,1)
+        //Math.random() 不跟参数
+
+        console.log(Math.random());
+
+        //得到两个数之间的随机整数，并且包含这两个整数
+        function getRandomInt(min, max) {
+            var min = Math.floor(min)
+            var max = Math.ceil(max)
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        console.log(getRandomInt(1, 10));
+
+        //随机点名
+        var arr = ['张三', '张三丰', '张三疯子', '李四', '李四疯子', '李思思', '佟丽娅']
+        console.log(arr[getRandomInt(0, arr.length - 1)]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

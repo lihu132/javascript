@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: orange;
+        }
+
+        .main {
+            width: 800px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+
+        .top-banner {
+            width: 100%;
+            height: 41px;
+            background-color: #fff;
+        }
+
+        .navi {
+            float: left;
+        }
+
+        .navi li {
+            float: left;
+        }
+
+        .functions {
+            float: right;
+        }
+
+        .functions li {
+            float: right;
+        }
+
+        li {
+            line-height: 41px;
+            height: 41px;
+            width: 70px;
+            text-align: center;
+            font-size: 12px;
+            color: #ccc;
+
+        }
+
+        li:hover {
+            color: orange;
+            background-color: #ccc;
+        }
+
+        li:hover a {
+            color: orange;
+            background-color: #ccc;
+        }
+
+        .extend {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-banner">
+        <div class="main">
+            <div class="navi">
+                <ul>
+                    <li>设为首页</li>
+                    <li>手机新浪网</li>
+                    <li>移动客户端</li>
+                </ul>
+            </div>
+            <div class="functions">
+                <ul>
+                    <li>登录</li>
+                    <li>
+                        <a href="https://cn.pornhub.com/">微博</a>
+                        <div class="extend">
+                            <ul>
+                                <li>苍井空</li>
+                                <li>苍井空</li>
+                                <li>苍井空</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://cn.pornhub.com/">微博</a>
+                        <div class="extend">
+                            <ul>
+                                <li>苍井空</li>
+                                <li>苍井空</li>
+                                <li>苍井空</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>博客</li>
+                    <li>邮箱</li>
+                    <li>网站导航</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var li = document.getElementsByTagName('li')
+        var extend = document.getElementsByClassName('extend')
+        console.log(li[4]);
+        li[4].onmouseover = function () {
+            extend[0].style.display = 'block'
+        }
+        li[4].onmouseout = function () {
+            extend[0].style.display = 'none'
+        }
+
+
+
+    </script>
+</body>
+
+</html>

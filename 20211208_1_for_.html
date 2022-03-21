@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj = {
+            name: 'pink',
+            age: 18,
+            gender: 'male'
+        }
+
+        console.log(obj.name);
+        console.log(obj.age);
+        console.log(obj.gender);
+        console.log('------分隔------');
+
+        for (var k in obj) {
+            console.log(k); //输出的是属性名
+            console.log(obj[k]); //输出的是值，必须是 obj[k]
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

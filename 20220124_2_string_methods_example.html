@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = 'abaasdffggghhjjkkgfddsssss3444343'
+        console.log('字符串的长度' + str.length);
+        function positionChar(str, position) {
+            return '位置' + position + ' ' + str[position]
+        }
+        console.log(positionChar(str, 0));
+        console.log(positionChar(str, 3));
+        console.log(positionChar(str, 5));
+        console.log(positionChar(str, 9));
+
+        function ifChar(str, char) {
+            return str.indexOf(char) >= 0 ? true : false
+        }
+
+        console.log(ifChar(str, 'i'));
+        console.log(ifChar(str, 'c'));
+        console.log(ifChar(str, 'b'));
+
+        function replaceChar(str, charOld, charNew) {
+            while (str.indexOf(charOld) >= 0) {
+                str = str.replace(charOld, charNew)
+            }
+            return str
+        }
+
+        console.log(replaceChar(str, 'g', '22'));
+        console.log(replaceChar(str, 'ss', 'b'));
+
+        function subStringPosition(str, start, end) {
+            return str.substr(start, end)
+        }
+        console.log(subStringPosition(str, 1, 5));
+
+        function maxCount(str) {
+            var obj = new Object()
+            for (var i = 0; i < str.length; i++) {
+                if (obj[str.charAt(i)]) {
+                    obj[str.charAt(i)]++
+                }
+                else {
+                    obj[str.charAt(i)] = 1
+                }
+            }
+            var max = 0
+            var result = ''
+            for (var k in obj) {
+                if (obj[k] > max) {
+                    max = obj[k]
+                    result = k
+                }
+            }
+            return '最多的字符是' + result + ' 出现了' + max + '次'
+        }
+
+        console.log((maxCount(str)));
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

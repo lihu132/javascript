@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 400px;
+            margin: 100px auto;
+
+        }
+
+        input {
+            float: left;
+            font-size: 26px;
+            line-height: 26px;
+            color: #ccc;
+            border: 1px solid #ccc;
+            outline: none;
+            padding-left: 10px;
+        }
+
+        button {
+            float: left;
+            height: 33px;
+            font-size: 24px;
+            line-height: 28px;
+            border-left: none;
+            outline: none;
+            border-top: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" value="邮箱/ID/手机号">
+        <button>登录</button>
+    </div>
+
+    <script>
+        var input = document.querySelector('input')
+        var btn = document.querySelector('button')
+        input.onfocus = function () {
+            if (input.value == '邮箱/ID/手机号') {
+                input.value = ''
+                input.style.borderColor = 'pink'
+            }
+        }
+
+        input.onblur = function () {
+            if (input.value == '') {
+                input.value = '邮箱/ID/手机号'
+            }
+            input.style.borderColor = '#ccc'
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

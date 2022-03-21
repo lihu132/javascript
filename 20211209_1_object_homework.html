@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.一个电脑对象，包含颜色，重量，品牌，型号，可以看电影，听音乐，打游戏，敲代码
+        var computer = {
+            color: '黑色',
+            weight: '10kg',
+            brand: 'AOC',
+            type: 'GTX1070TI',
+            watchMovie: function () {
+                console.log('watch sex movie');
+            },
+            listenMusic: function () {
+                console.log('listen sex music');
+            },
+            playGame: function () {
+                console.log('play sex game');
+            },
+            coding: function () {
+                console.log('coding');
+            }
+        }
+
+        console.log(computer);
+        computer.coding()
+        computer.playGame()
+        console.log(computer.color);
+        console.log(computer['brand']);
+
+        console.log('------------分隔符------------');
+
+        //2.一个按钮对象，包含款，搞，背景颜色和点击行为
+        var btn = new Object()
+        btn.width = '100px'
+        btn.height = '100px'
+        btn.bgc = 'pink'
+        btn.click = function () { console.log('one click'); }
+
+        console.log(btn['width']);
+        console.log(btn);
+        btn.click()
+
+        console.log('------------分隔符------------');
+
+        //3.一个车的对象，包含重量，颜色，牌子，可以载人，拉货和耕田
+        function Car(weight, color, brand) {
+            this.weight = weight
+            this.color = color
+            this.brand = brand
+            this.load = function () {
+                console.log('我在骑佟丽娅');
+            }
+            this.transport = function (name) {
+                console.log('我在送全裸的' + name + '上床');
+            }
+            this.cultivation = function (name) {
+                console.log('我每天在' + name + '身上耕耘');
+            }
+        }
+
+        var sexBus = new Car('100kg', 'red', 'sex')
+
+        console.log(sexBus);
+        sexBus.load()
+        sexBus.transport('高圆圆')
+        sexBus.cultivation('苍井空')
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .bgc {
+            background-color: pink;
+        }
+
+        .null {
+            background-color: white;
+        } */
+    </style>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+        //排他性  
+        //1.获取所有按钮元素
+        var btns = document.getElementsByTagName('button')
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                //先把所有按钮背景颜色去掉
+                for (var i = 0; i < btns.length; i++) {
+                    // btns[i].className = 'null'
+                    btns[i].style.backgroundColor = ''
+                }
+                //然后当前元素背景元素为pink
+                // this.className = 'bgc'
+                this.style.backgroundColor = 'pink'
+            }
+        }
+
+        //2.先干掉其他人，再设置自己 这叫做排他思想
+
+    </script>
+</body>
+
+</html>

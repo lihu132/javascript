@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getSum(num1, num2) {
+            var sum = 0
+            sum = num1 + num2
+            console.log(sum);
+        }
+
+        function getSumBetween(num1, num2) {
+            var sum = 0
+            for (var i = num1; i <= num2; i++) {
+                sum += i
+            }
+            console.log(sum);
+        }
+
+        var num1 = parseFloat(prompt('请输入起始'))
+        var num2 = parseFloat(prompt('请输入终点'))
+        getSum(num1, num2)
+        getSumBetween(num1, num2)
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

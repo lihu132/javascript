@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getRandomInt(min, max) {
+            var min = Math.floor(min)
+            var max = Math.ceil(max)
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        var result = getRandomInt(1, 50)
+        var count = 1
+        var num = parseInt(prompt("你来猜！1-50，10次机会。第" + count + "次。请输入一个数字:"))
+        while (num !== result) {
+            if (num > result) {
+                alert("数字大了，继续猜")
+            }
+            else {
+                alert("数字小了，继续猜")
+            }
+            count++
+            if (count == 11) {
+                alert("10次已用尽吗，没有机会了")
+                break
+            }
+            num = parseInt(prompt("第" + count + "次。请输入一个数字:"))
+
+        }
+        if (count != 11) { alert("猜对了！") }
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

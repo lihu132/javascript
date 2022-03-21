@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            border: 1px solid pink;
+        }
+
+        textarea:focus {
+            outline: none;
+        }
+
+        ul {
+            width: 300px;
+        }
+
+        li {
+            width: 100%;
+            background-color: pink;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="20" placeholder="123"></textarea>
+    <button>submit</button>
+    <ul></ul>
+    <script>
+        var ul = document.querySelector('ul')
+        var btn = document.querySelector('button')
+        var text = document.querySelector('textarea')
+
+
+        btn.onclick = function () {
+            if (text.value == '') {
+                alert('no input')
+                return false
+            }
+            else {
+                var li = document.createElement('li')
+                li.innerText = text.value
+                ul.insertBefore(li, ul.children[0])
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <li class="qrCode"></li>
+        <li class="qrCode"></li>
+        <li class="qrCode"></li>
+        <li class="qrCode"></li>
+        <li class="qrCode"></li>
+    </div>
+
+
+    <ul>
+        <li>1111111</li>
+        <li>1111112</li>
+        <li>1111113</li>
+        <li>1111114</li>
+        <li>1111115</li>
+    </ul>
+    <ol>
+        <li>222222</li>
+        <li>222222</li>
+        <li>222222</li>
+        <li>222222</li>
+        <li>222222</li>
+    </ol>
+
+
+
+    <script>
+        var qrCode = document.querySelector('.qrCode')
+        //得到的是距离元素最近的父级节点（亲爸爸），如果找不到父节点就返回为Null
+        console.dir(qrCode.parentNode)
+
+
+        var ul = document.querySelector('ul')
+        var lis = ul.querySelectorAll('li')
+
+        // 包含换行的文本节点，元素节点等等
+        console.log(ul.childNodes)
+        console.dir(ul.childNodes)
+
+
+        console.log(ul.children)
+
+        //firstChild 第一个子节点，可能是文本节点
+        console.log(ul.children.firstchild);
+        ul.lastChild
+
+        //IE9以上支持
+        console.log(ul.firstElementChild);
+        ul.lastElementChild
+
+
+        //实际开发写法
+        ul.children[0]
+        ul.children[ul.children.length - 1]
+
+        console.log(ul.children[ul.children.length - 1]);
+
+    </script>
+</body>
+
+</html>

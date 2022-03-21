@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            width: 825px;
+            height: 125px;
+            margin: 100px auto;
+        }
+
+        .box img {
+            width: 200px;
+            height: 125px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="images/1.jpg" alt="" id="1"><img src="images/2.jpg" alt="" id="2"><img src="images/3.jpg" alt=""
+            id="3"><img src="images/4.jpg" alt="" id="4">
+    </div>
+    <script>
+        // var img = document.querySelector('.box').querySelectorAll('img')
+        var img = document.getElementsByTagName('img')
+        var body = document.body
+        // console.log(body);
+        for (var i = 0; i < img.length; i++) {
+            img[i].onclick = function () {
+                // body.style.background = 'url(images/' + this.id + '.jpg) no-repeat center top '
+                body.style.backgroundSize = '100%'
+                body.style.background = 'url(' + this.src + ') no-repeat center top'
+
+            }
+        }
+    </script>
+</body>
+
+</html>

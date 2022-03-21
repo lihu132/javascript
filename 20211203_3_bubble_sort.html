@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = [3, 2, 4, 9, 1, 5, 7, 6, 8];
+        var temp = 0
+        var i = num.length
+        // for (var i = 0; i < num.length - 1; i++) {
+        //     for (var j = 0; j < num.length - 1 - i; j++) {
+        //         if (num[j] > num[j + 1]) {
+        //             temp = num[j]
+        //             num[j] = num[j + 1]
+        //             num[j + 1] = temp
+        //         }
+        //     }
+        // }
+
+        while (i > 1) {
+            for (var j = 0; j < i - 1; j++) {
+                if (num[j] < num[j + 1]) {
+                    temp = num[j]
+                    num[j] = num[j + 1]
+                    num[j + 1] = temp
+                }
+            }
+            i--
+        }
+
+
+        console.log(num);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

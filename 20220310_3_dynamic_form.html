@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table thead {
+            height: 40px;
+            background-color: #bebebe;
+        }
+
+
+        th,
+        td {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>苍井空</td>
+                <td>女上式</td>
+                <td>95</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>武藤兰</td>
+                <td>深喉</td>
+                <td>90</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>小泽玛利亚</td>
+                <td>69</td>
+                <td>98</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>吉泽明步</td>
+                <td>后入式</td>
+                <td>90</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+        </tbody>
+        <script>
+            var datas = [{
+                name: '松本芽依',
+                subject: '足交',
+                score: 150
+            }, {
+                name: '南宫婉',
+                subject: '双修',
+                score: 180
+            }, {
+                name: '唐紫尘',
+                subject: '国术特技',
+                score: 280
+            }, {
+                name: '美杜莎女王',
+                subject: '肉便器',
+                score: 1000
+            }]
+
+            var tbody = document.querySelector('tbody')
+            for (var i = 0; i < datas.length; i++) {
+                //1.创建行
+                var tr = document.createElement('tr')
+                tbody.appendChild(tr)
+
+                //2.创建数据单元格
+                for (var k in datas[i]) {
+                    var td = document.createElement('td')
+                    //k得到的是属性值，obj[k]得到的是属性值
+                    td.innerHTML = datas[i][k]
+                    tr.appendChild(td)
+                }
+
+                //3.创建功能单元格
+                var td = document.createElement("td")
+                td.innerHTML = "<a href='javascript: ; '>删除</a>"
+                tr.appendChild(td)
+            }
+
+            //4.删除行
+            var as = document.querySelectorAll('a')
+            for (var i = 0; i < as.length; i++) {
+                as[i].onclick = function () {
+                    tbody.removeChild(this.parentNode.parentNode)
+                }
+            }
+
+
+
+
+        </script>
+    </table>
+</body>
+
+</html>
