@@ -8,13 +8,27 @@
 </head>
 <body>
     <button>点击</button>
+    <div></div>
     <script>
         var btn = document.querySelector('button')
+        var div = document.querySelector('div')
         btn.addEventListener('click',function(){
             setTimeout(function(){
                 window.location.href = 'http:///google.com'
             },1000)
         })
+
+        var time = 5 
+        div.innerHTML = time+"秒后自动跳转"
+        time--
+        setInterval(function(){
+            if(time!=0){
+                div.innerHTML = time+"秒后自动跳转"
+                time--
+            }else{
+                window.location.href = 'http:///google.com'
+            }
+            },1000)
     </script>
 </body>
 </html>
