@@ -11,6 +11,11 @@
 <body>
     首页
     <div><span></span>欢迎光临</div>
+    <img src="" alt="">
+    <script>
+        var span = document.querySelector('span')
+        span.innerHTML = location.search.substring(1).split('=')[1] + "<img src='images/boobs.jpg'>"
+    </script>
 </body>
 
 </html>
