@@ -9,7 +9,40 @@
 </head>
 
 <body>
+    <form action="" method="post">
+        手机号码：<input type="text" placeholder="请输入手机号码">
+        <button type="submit">发送</button>
+    </form>
+    <script>
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('button')
+            btn.addEventListener('click', function () {
+                btn.disabled = true
+                countDown(3)
+            })
 
+            function countDown(time) {
+                var timeInt = parseInt(time)
+                btn.innerHTML = "还剩" + timeInt + "秒再次点击"
+                timeInt--
+                var time1 = setInterval(function () {
+                    if (timeInt === 0) {
+                        clearInterval(time1)
+                        btn.innerHTML = "发送"
+                        btn.disabled = false
+                    } else {
+                        btn.innerHTML = "还剩" + timeInt + "秒再次点击"
+                        timeInt--
+                    }
+
+                }, 1000)
+
+
+            }
+        })
+
+
+    </script>
 </body>
 
 </html>
