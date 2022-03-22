@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        var btn = document.querySelector('button')
+
+
+        btn.addEventListener('click', function () {
+            // assign 记录历史记录，可后退
+            // location.assign('https://pornhub.com')
+            //replace 无历史记录， 无法后退
+            // location.replace('https://pornhub.com')
+
+            // 刷新页面，空或者false自动刷新，true强制刷新 ctrl+F5
+            location.reload()
+        })
+    </script>
+</body>
+
+</html>
