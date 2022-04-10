@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" style="width: 200px;"></div>
+    <script>
+
+        //offset 和 style区别
+        var box = document.querySelector('.box')
+        // offset只读，style可读写
+        console.log(box.offsetWidth);
+        console.log(box.style.width);
+
+        box.style.width = '300px'
+    </script>
+</body>
+
+</html>
