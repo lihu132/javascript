@@ -11,24 +11,24 @@
             margin: 0;
             padding: 0;
         }
-        
+
         a {
             text-decoration: none;
             color: #000;
         }
-        
+
         .login-header {
             position: relative;
             z-index: 999;
             text-align: center;
         }
-        
+
         .login-header a {
             display: block;
             font-size: 24px;
             padding: 20px;
         }
-        
+
         .login {
             display: none;
             position: fixed;
@@ -41,7 +41,7 @@
             box-shadow: 0 0 20px #ddd;
             background-color: #fff;
         }
-        
+
         .login-title {
             text-align: center;
             height: 70px;
@@ -50,7 +50,7 @@
             font-weight: 600;
             cursor: move;
         }
-        
+
         .login-title span {
             position: absolute;
             top: -20px;
@@ -63,39 +63,39 @@
             border-radius: 20px;
             line-height: 40px;
         }
-        
+
         .login-input-content {
             height: 280px;
             text-align: center;
         }
-        
+
         .login-input {
             height: 100px;
             line-height: 100px;
         }
-        
+
         .login-input label {
             float: left;
             width: 90px;
             padding-left: 10px;
             text-align: right;
         }
-        
+
         .login-input .login-input-area {
             width: 500px;
             height: 30px;
         }
-        
+
         .login-button {
             height: 80px;
             line-height: 80px;
         }
-        
+
         .login-button a {
             padding: 10px 100px;
             border: 1px solid #ccc;
         }
-        
+
         .login-bg {
             display: none;
             position: fixed;
@@ -132,24 +132,52 @@
     <div id="bg" class="login-bg"></div>
 
     <script>
-        var login_head = document.querySelector('.login-header')
+        var link = document.querySelector('#link')
         var login = document.querySelector('.login')
-        var login_title = document.querySelector('.login-title')
-        var login_bg = document.querySelector('.login-bg')
-        var close_login = document.querySelector('.close-login')
-        login_head.addEventListener('click', function() {
+        var mask = document.querySelector('.login-bg')
+        var closeBtnn = document.querySelector('#closeBtn')
+        var title = document.querySelector('#title')
+
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault()
+        })
+
+        // 点击链接登录
+        link.addEventListener('click', function () {
             login.style.display = "block";
-            login_bg.style.display = "block"
-            login_title.addEventListener('mousedown', function(e) {
-                e.
-            })
-
+            mask.style.display = "block";
         })
 
-        close_login.addEventListener('click', function() {
+        // 点击close隐藏
+        closeBtn.addEventListener('click', function () {
             login.style.display = "none";
-            login_bg.style.display = "none"
+            mask.style.display = "none";
         })
+
+        // 当鼠标按下获得鼠标在盒子title内的坐标
+        var x;
+        var y;
+        title.addEventListener('mousedown', function (e) {
+            x = e.pageX - login.offsetLeft;
+            y = e.pageY - login.offsetTop;
+
+            // 鼠标移动时
+            document.addEventListener('mousemove', move)
+
+            function move(e) {
+                login.style.left = e.pageX - x + 'px';
+                login.style.top = e.pageY - y + 'px';
+            }
+
+            // 鼠标弹起，鼠标移动事件移除
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', move)
+            })
+        })
+
+
+
+
     </script>
 </body>
 
