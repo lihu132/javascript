@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            position: relative;
+        }
+        
+        .preview_img {
+            position: absolute;
+            top: 50px;
+            left: 100px;
+            width: 350px;
+            height: 400px;
+            border: 1px solid #ccc;
+        }
+        
+        .preview_img img {
+            width: 100%;
+        }
+        
+        .preview_img .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            border-bottom: 1px solid #ccc;
+            background-color: rgba(0, 0, 0, .2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview_img">
+        <img src="./images/iphone-13-pro-family-hero.png" alt="">
+        <div class="mask"></div>
+    </div>
+
+    <script>
+        var img = document.querySelector('.preview_img')
+        var mask = document.querySelector('.mask')
+
+        mask.addEventListener('mousemove', function(e) {
+
+        })
+    </script>
+</body>
+
+</html>
