@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./295_jingdong_magnifying.js"></script>
     <style>
         * {
             margin: 0;
@@ -18,25 +19,45 @@
         
         .preview_img {
             position: absolute;
-            top: 50px;
+            top: 100px;
             left: 100px;
-            width: 350px;
+            width: 400px;
             height: 400px;
             border: 1px solid #ccc;
         }
         
-        .preview_img img {
+        .preview_img>img {
             width: 100%;
         }
         
         .preview_img .mask {
+            display: none;
             position: absolute;
             top: 0;
             left: 0;
             width: 150px;
             height: 150px;
             border-bottom: 1px solid #ccc;
-            background-color: rgba(0, 0, 0, .2);
+            background-color: #fede4f;
+            opacity: .5;
+            cursor: move;
+        }
+        
+        .big {
+            display: none;
+            position: absolute;
+            left: 420px;
+            top: 0;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        
+        .big img {
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
@@ -45,16 +66,12 @@
     <div class="preview_img">
         <img src="./images/iphone-13-pro-family-hero.png" alt="">
         <div class="mask"></div>
+        <div class="big">
+            <img src="./images/yellow766x1024.jpg" alt="" class="bigImg">
+        </div>
     </div>
 
-    <script>
-        var img = document.querySelector('.preview_img')
-        var mask = document.querySelector('.mask')
 
-        mask.addEventListener('mousemove', function(e) {
-
-        })
-    </script>
 </body>
 
 </html>
