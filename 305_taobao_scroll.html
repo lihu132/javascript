@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .w {
+            width: 80%;
+            margin: 0 auto 10px;
+        }
+
+        .header {
+            height: 300px;
+            background-color: pink;
+        }
+
+        .banner {
+            height: 500px;
+            background-color: skyblue;
+        }
+
+        .admin {
+            height: 1000px;
+            background-color: yellowgreen;
+        }
+
+        .side-bar {
+            position: absolute;
+            top: 560px;
+            right: 5%;
+            width: 5%;
+            height: 260px;
+            background-color: pink;
+        }
+
+        .side-bar span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="side-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="admin w">主题区域</div>
+
+    <script>
+        var sideBar = document.querySelector('.side-bar')
+        var banner = document.querySelector('.banner')
+        var admin = document.querySelector('.admin')
+        var bannerTop = banner.offsetTop; //一定要写道滚动的外面
+
+        var sliderBarTop = sideBar.offsetTop;
+
+        var adminTop = admin.offsetTop;
+
+        document.addEventListener('scroll', function () {
+
+            //当页面滚动大于等于320px ,sideBar改成固定定位
+            console.log(window.pageYOffset);
+            if (window.pageYOffset >= bannerTop) {
+                sideBar.style.position = 'fixed'
+                sideBar.style.top = sliderBarTop - bannerTop + 'px'
+            } else {
+                sideBar.style.position = 'absolute'
+                sideBar.style.top = sliderBarTop + 'px'
+            }
+
+            //当页面滚动到admin，显示返回顶部
+            if (window.pageYOffset >= adminTop) {
+                sideBar.children[0].style.display = 'block'
+            } else {
+                sideBar.children[0].style.display = 'none'
+            }
+
+        })
+    </script>
+</body>
+
+</html>

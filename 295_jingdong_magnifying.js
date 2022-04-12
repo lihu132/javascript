@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     var preview_img = document.querySelector('.preview_img')
     var mask = document.querySelector('.mask')
     var big = document.querySelector('.big')
@@ -10,17 +10,17 @@ window.addEventListener('load', function() {
 
     }
 
-    preview_img.addEventListener('mouseover', function() {
+    preview_img.addEventListener('mouseover', function () {
         mask.style.display = 'block';
         big.style.display = 'block';
     })
 
-    preview_img.addEventListener('mouseout', function() {
+    preview_img.addEventListener('mouseout', function () {
         mask.style.display = 'none';
         big.style.display = 'none';
     })
 
-    preview_img.addEventListener('mousemove', function(e) {
+    preview_img.addEventListener('mousemove', function (e) {
         var maskX = e.pageX - preview_img.offsetLeft - mask.offsetWidth / 2;
         var maskY = e.pageY - preview_img.offsetTop - mask.offsetHeight / 2;
 
