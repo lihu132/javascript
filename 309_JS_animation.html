@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            position: absolute;
+            top: 100px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        // 动画原理
+        // 1.获得当前盒子的位置
+        // 2.让盒子在当前位置加上一个移动距离
+        // 3.利用定时器不断重复这个操作
+        // 4.加一个结束定时器的条件
+        // 5.注意瓷元素需要添加定位，才能使用element.style.left
+
+
+
+        //简单动画函数封装
+        //obj目标对象，target目标位置
+        function animation(obj, target) {
+            var positionLeft = obj.offsetLeft
+            var timer = setInterval(function () {
+                if (positionLeft >= target) {
+                    clearInterval(timer)
+                }
+
+                positionLeft += 5
+                obj.style.left = positionLeft + 'px'
+            }, 30)
+
+            obj.addEventListener('mouseover', function () {
+                clearInterval(timer)
+            })
+        }
+
+        var div = document.querySelector('div')
+        animation(div, 300)
+
+
+        var span = document.querySelector('span')
+        animation(span, 200)
+
+    </script>
+</body>
+
+</html>
