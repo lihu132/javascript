@@ -6,36 +6,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .focus {
+            position: relative;
+            width: 721px;
+            height: 455px;
+            margin: 0 auto;
+            border: 5px solid red;
+            /* overflow: hidden; */
+        }
+
+        .focus .arrow-l {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background-color: skyblue;
+        }
+
+        .focus .arrow-r {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            background-color: skyblue;
+        }
+
+        .focus ul {
+            width: 400%;
+            height: 100%;
+
+        }
+
+        .focus ul li {
+            float: left;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="w">
-        <div class="main">
-            <div class="focus fl">
-                <!-- 左侧按钮 -->
-                <a href="#" class="arrow-l">&lt;</a>
-                <!-- 右侧按钮 -->
-                <a href="#" class="arrow-r">&gt;</a>
 
-                <!-- 核心滚动区域 -->
-                <ul>
-                    <li>
-                        <a href="#"><img src="./upload/focus.jpg" alt=""></a>
-                    </li>
-                </ul>
+    <div class="focus">
+        <!-- 左侧按钮 -->
+        <a href="#" class="arrow-l">&lt;</a>
+        <!-- 右侧按钮 -->
+        <a href="#" class="arrow-r">&gt;</a>
 
-                <!-- 小圆点 -->
-                <ol class="circle">
-                    <li></li>
-                    <li class="current"></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ol>
-            </div>
-        </div>
+        <!-- 核心滚动区域 -->
+        <ul>
+            <li>
+                <a href="#"><img src="./upload/focus.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./upload/focus1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./upload/focus2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./upload/focus3.jpg" alt=""></a>
+            </li>
+        </ul>
+
+        <!-- 小圆点 -->
+        <ol class="circle">
+            <li></li>
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
     </div>
 </body>
 
