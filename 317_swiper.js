@@ -7,6 +7,7 @@ window.addEventListener('load', function() {
     var circle = this.document.querySelector('.circle')
     var img = this.document.querySelector('img')
 
+    var imgWidth = img.offsetWidth
     ul.style.width = img.offsetWidth * ul.children.length + 'px'
 
     //1.鼠标经过focus 显示左右箭头
@@ -24,18 +25,21 @@ window.addEventListener('load', function() {
     for (var i = 0; i < ul.children.length; i++) {
         var li = this.document.createElement('li')
         circle.appendChild(li)
+        li.setAttribute('index', i)
     }
 
     circle.children[0].className = 'current'
 
+    //2.1小圆圈点击更改颜色
     circle.addEventListener('click', function(e) {
         if (e.target != circle) {
             for (var i = 0; i < ul.children.length; i++) {
-                circle.children[i].className = ' '
+                circle.children[i].className = ''
             }
             e.target.className = 'current'
+            animate(ul, -e.target.getAttribute('index') * imgWidth)
         }
-        console.log(1);
+        console.log(e.target.getAttribute('index'));
     })
 
 })

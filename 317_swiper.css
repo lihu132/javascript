@@ -56,6 +56,9 @@ a {
 }
 
 .focus ul {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 400%;
     height: 100%;
 }
