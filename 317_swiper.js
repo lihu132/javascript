@@ -74,4 +74,26 @@ window.addEventListener('load', function() {
         circle.children[index].className = 'current'
 
     })
+
+    //4.自动播放
+    function autoPlay() {
+        setInterval(function() {
+            clickCount--
+            index++
+            var leftPosition = clickCount * imgWidth;
+            animate(ul, leftPosition)
+            for (var i = 0; i < ul.children.length; i++) {
+                circle.children[i].className = ''
+            }
+            circle.children[index].className = 'current'
+            console.log(Math.abs(ul.children.length - 1));
+
+            // 当超出时自动归零
+            if (Math.abs(clickCount) == ul.children.length - 1) {
+                clickCount = 1
+                index = -1
+            }
+        }, 1000)
+    }
+    autoPlay()
 })
