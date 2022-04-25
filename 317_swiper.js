@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
 
     var arrow_l = this.document.querySelector('.arrow-l')
     var arrow_r = this.document.querySelector('.arrow-r')
@@ -9,22 +9,23 @@ window.addEventListener('load', function() {
 
     var imgWidth = img.offsetWidth
     ul.style.width = imgWidth * ul.children.length + 'px'
-        // focus.style.width = imgWidth + 'px'
-        // focus.style.height = img.offsetHeighth + 'px'
+    // focus.style.width = imgWidth + 'px'
+    // focus.style.height = img.offsetHeighth + 'px'
 
     //1.鼠标经过focus 显示左右箭头
-    focus.addEventListener('mouseenter', function() {
+    focus.addEventListener('mouseenter', function () {
         arrow_l.style.display = 'block'
         arrow_r.style.display = 'block'
     })
-    focus.addEventListener('mouseleave', function() {
+    focus.addEventListener('mouseleave', function () {
         arrow_l.style.display = 'none'
         arrow_r.style.display = 'none'
+
     })
 
 
     //2.动态生成小圆圈
-    for (var i = 0; i < ul.children.length; i++) {
+    for (var i = 0; i < ul.children.length - 1; i++) {
         var li = this.document.createElement('li')
         circle.appendChild(li)
         li.setAttribute('index', i)
@@ -33,13 +34,13 @@ window.addEventListener('load', function() {
     circle.children[0].className = 'current'
 
     //2.1小圆圈点击更改颜色
-    circle.addEventListener('click', function(e) {
+    circle.addEventListener('click', function (e) {
         if (e.target != circle) {
-            for (var i = 0; i < ul.children.length; i++) {
+            for (var i = 0; i < ul.children.length - 1; i++) {
                 circle.children[i].className = ''
             }
             e.target.className = 'current'
-                //移动ul，移动图片
+            //移动ul，移动图片
             animate(ul, -e.target.getAttribute('index') * imgWidth)
         }
         console.log(e.target.getAttribute('index'));
@@ -49,21 +50,33 @@ window.addEventListener('load', function() {
     //3.左右箭头
     var clickCount = 0
     var index = 0
-    arrow_l.addEventListener('click', function() {
+    arrow_r.addEventListener('click', function () {
         // var leftPosition = ul.offsetLeft;
         // animate(ul, leftPosition - imgWidth);
         //animate因为有个interval时间，如果点击箭头太快，上一个动作为完成，下一个动作就开始，会导致错误位置
         clickCount--
         index++
         var leftPosition = clickCount * imgWidth;
-        animate(ul, leftPosition)
-        for (var i = 0; i < ul.children.length; i++) {
+        //当播放到第五张，在动画之后，取消动画，直接回到第一张的位置，做到无缝循环
+        if (Math.abs(clickCount) === ul.children.length - 1) {
+            animate(ul, leftPosition, function () {
+                ul.style.left = '0'
+            })
+            clickCount = 0;
+            index = 0
+        }
+        else {
+            animate(ul, leftPosition)
+        }
+
+        //小圆点跟随变化
+        for (var i = 0; i < ul.children.length - 1; i++) {
             circle.children[i].className = ''
         }
         circle.children[index].className = 'current'
 
     })
-    arrow_r.addEventListener('click', function() {
+    arrow_l.addEventListener('click', function () {
         clickCount++
         index--
         var leftPosition = clickCount * imgWidth;
@@ -76,24 +89,36 @@ window.addEventListener('load', function() {
     })
 
     //4.自动播放
-    function autoPlay() {
-        setInterval(function() {
-            clickCount--
-            index++
-            var leftPosition = clickCount * imgWidth;
-            animate(ul, leftPosition)
-            for (var i = 0; i < ul.children.length; i++) {
-                circle.children[i].className = ''
+    function autoPlay(play) {
+        timer = setInterval(function () {
+            if (!play) {
+                clearInterval(timer);
+                console.log('test');
             }
-            circle.children[index].className = 'current'
-            console.log(Math.abs(ul.children.length - 1));
+            else {
+                clickCount--
+                index++
+                var leftPosition = clickCount * imgWidth;
+                if (Math.abs(clickCount) === ul.children.length - 1) {
+                    animate(ul, leftPosition, function () {
+                        ul.style.left = '0'
+                    })
+                    clickCount = 0;
+                    index = 0
+                }
+                else {
+                    animate(ul, leftPosition)
+                }
 
-            // 当超出时自动归零
-            if (Math.abs(clickCount) == ul.children.length - 1) {
-                clickCount = 1
-                index = -1
+                for (var i = 0; i < ul.children.length - 1; i++) {
+                    circle.children[i].className = ''
+                }
+                circle.children[index].className = 'current'
             }
+
+
+
         }, 1000)
     }
-    autoPlay()
+    autoPlay(true)
 })
