@@ -62,61 +62,73 @@ window.addEventListener('load', function() {
     ul.appendChild(first)
 
     //3.左右箭头
-
+    // 节流阀
+    var flag = true
     arrow_r.addEventListener('click', function() {
-        // var leftPosition = ul.offsetLeft;
-        // animate(ul, leftPosition - imgWidth);
+        if (flag) {
+            //关闭节流阀
+            flag = false;
+            // var leftPosition = ul.offsetLeft;
+            // animate(ul, leftPosition - imgWidth);
 
 
-        //当播放到第五张，在动画之后，取消动画，直接回到第一张的位置，做到无缝循环
-        if (Math.abs(clickCount) === ul.children.length - 1) {
-            ul.style.left = '0'
-            clickCount = 0;
+            //当播放到第五张，在动画之后，取消动画，直接回到第一张的位置，做到无缝循环
+            if (Math.abs(clickCount) === ul.children.length - 1) {
+                ul.style.left = '0'
+                clickCount = 0;
+            }
+            clickCount--
+            index++
+            console.log('r-index' + index + '  r-count' + clickCount);
+            var leftPosition = clickCount * imgWidth;
+            animate(ul, leftPosition, function() {
+                flag = true;
+            })
+
+
+            //小圆点跟随变化
+            for (var i = 0; i < circle.children.length; i++) {
+                circle.children[i].className = ''
+            }
+            if (index == circle.children.length) {
+                index = 0
+            }
+            circle.children[index].className = 'current'
         }
-        clickCount--
-        index++
-        console.log('r-index' + index + '  r-count' + clickCount);
-        var leftPosition = clickCount * imgWidth;
-        animate(ul, leftPosition)
-
-
-        //小圆点跟随变化
-        for (var i = 0; i < circle.children.length; i++) {
-            circle.children[i].className = ''
-        }
-        if (index == circle.children.length) {
-            index = 0
-        }
-        circle.children[index].className = 'current'
 
     })
 
     arrow_l.addEventListener('click', function() {
-        // var leftPosition = ul.offsetLeft;
-        // animate(ul, leftPosition - imgWidth);
+        if (flag) {
+            flag = false;
+            // var leftPosition = ul.offsetLeft;
+            // animate(ul, leftPosition - imgWidth);
 
 
-        //开始第一张时，返回第四张
-        if (Math.abs(clickCount) === 0) {
-            ul.style.left = -(ul.children.length - 1) * imgWidth + 'px'
-            clickCount = -(ul.children.length - 1);
+            //开始第一张时，返回第四张
+            if (Math.abs(clickCount) === 0) {
+                ul.style.left = -(ul.children.length - 1) * imgWidth + 'px'
+                clickCount = -(ul.children.length - 1);
+            }
+            clickCount++
+            index--
+            var leftPosition = clickCount * imgWidth;
+            animate(ul, leftPosition, function() {
+                flag = true
+            })
+            console.log('l-index' + index);
+
+            //小圆点跟随变化
+            for (var i = 0; i < circle.children.length; i++) {
+                circle.children[i].className = ''
+            }
+
+            //当到第五张时，直接返回第四张
+            if (index < 0) {
+                index = circle.children.length - 1
+            }
+            circle.children[index].className = 'current'
         }
-        clickCount++
-        index--
-        var leftPosition = clickCount * imgWidth;
-        animate(ul, leftPosition)
-        console.log('l-index' + index);
-
-        //小圆点跟随变化
-        for (var i = 0; i < circle.children.length; i++) {
-            circle.children[i].className = ''
-        }
-
-        //当到第五张时，直接返回第四张
-        if (index < 0) {
-            index = circle.children.length - 1
-        }
-        circle.children[index].className = 'current'
 
     })
 

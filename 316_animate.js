@@ -8,9 +8,10 @@ function animate(obj, target, callback) {
         if (obj.offsetLeft == target) {
             clearInterval(obj.timer)
                 //回调函数写在定时器结束里面
-            if (callback) {
-                callback()
-            }
+                // if (callback) {
+                //     callback()
+                // }
+            callback && callback();
         } else {
             //缓动，更改步长
             //匀速动画 步长固定
