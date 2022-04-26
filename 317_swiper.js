@@ -66,15 +66,12 @@ window.addEventListener('load', function() {
     arrow_r.addEventListener('click', function() {
         // var leftPosition = ul.offsetLeft;
         // animate(ul, leftPosition - imgWidth);
-        //animate因为有个interval时间，如果点击箭头太快，上一个动作为完成，下一个动作就开始，会导致错误位置
+
 
         //当播放到第五张，在动画之后，取消动画，直接回到第一张的位置，做到无缝循环
         if (Math.abs(clickCount) === ul.children.length - 1) {
-            // animate(ul, leftPosition, function() {
             ul.style.left = '0'
-                // })
             clickCount = 0;
-            // index = 0
         }
         clickCount--
         index++
@@ -97,15 +94,12 @@ window.addEventListener('load', function() {
     arrow_l.addEventListener('click', function() {
         // var leftPosition = ul.offsetLeft;
         // animate(ul, leftPosition - imgWidth);
-        //animate因为有个interval时间，如果点击箭头太快，上一个动作为完成，下一个动作就开始，会导致错误位置
+
 
         //开始第一张时，返回第四张
         if (Math.abs(clickCount) === 0) {
-            // animate(ul, leftPosition, function() {
             ul.style.left = -(ul.children.length - 1) * imgWidth + 'px'
-                // })
             clickCount = -(ul.children.length - 1);
-            // index = ul.children.length - 1
         }
         clickCount++
         index--
@@ -132,5 +126,4 @@ window.addEventListener('load', function() {
         arrow_r.click()
     }, 2000)
 
-    // autoPlay(true)
 })
