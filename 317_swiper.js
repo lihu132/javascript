@@ -20,11 +20,16 @@ window.addEventListener('load', function() {
     focus.addEventListener('mouseenter', function() {
         arrow_l.style.display = 'block'
         arrow_r.style.display = 'block'
+        clearInterval(timer)
+        timer = null
     })
     focus.addEventListener('mouseleave', function() {
         arrow_l.style.display = 'none'
         arrow_r.style.display = 'none'
-
+        timer = setInterval(function() {
+            // 手动调用点击事件
+            arrow_r.click()
+        }, 2000)
     })
 
 
@@ -121,38 +126,11 @@ window.addEventListener('load', function() {
 
     })
 
-
-
-
     //4.自动播放
-    function autoPlay(play) {
-        timer = setInterval(function() {
-            if (!play) {
-                clearInterval(timer);
-                console.log('test');
-            } else {
-                clickCount--
-                index++
-                var leftPosition = clickCount * imgWidth;
-                if (Math.abs(clickCount) === ul.children.length - 1) {
-                    animate(ul, leftPosition, function() {
-                        ul.style.left = '0'
-                    })
-                    clickCount = 0;
-                    index = 0
-                } else {
-                    animate(ul, leftPosition)
-                }
+    var timer = setInterval(function() {
+        // 手动调用点击事件
+        arrow_r.click()
+    }, 2000)
 
-                for (var i = 0; i < ul.children.length - 1; i++) {
-                    circle.children[i].className = ''
-                }
-                circle.children[index].className = 'current'
-            }
-
-
-
-        }, 1000)
-    }
     // autoPlay(true)
 })
