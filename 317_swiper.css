@@ -18,7 +18,7 @@ a {
     height: 455px;
     margin: 0 auto;
     border: 5px solid red;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .focus .arrow-l {
