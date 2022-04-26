@@ -69,7 +69,7 @@ window.addEventListener('load', function() {
             ul.style.left = '0'
                 // })
             clickCount = 0;
-            index = 0
+            // index = 0
         }
         clickCount--
         index++
@@ -100,7 +100,7 @@ window.addEventListener('load', function() {
             ul.style.left = -(ul.children.length - 1) * imgWidth + 'px'
                 // })
             clickCount = -(ul.children.length - 1);
-            index = ul.children.length - 1
+            // index = ul.children.length - 1
         }
         clickCount++
         index--
