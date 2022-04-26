@@ -73,6 +73,7 @@ window.addEventListener('load', function() {
         }
         clickCount--
         index++
+        console.log('r-index' + index + '  r-count' + clickCount);
         var leftPosition = clickCount * imgWidth;
         animate(ul, leftPosition)
 
@@ -88,26 +89,40 @@ window.addEventListener('load', function() {
 
     })
 
-
     arrow_l.addEventListener('click', function() {
+        // var leftPosition = ul.offsetLeft;
+        // animate(ul, leftPosition - imgWidth);
+        //animate因为有个interval时间，如果点击箭头太快，上一个动作为完成，下一个动作就开始，会导致错误位置
 
-        if (index < 0) {
-            ul.style.left = -(ul.children.length - 2) * imgWidth + 'px';
-            clickCount = -(ul.children.length - 2);
-            index = ul.children.length - 2;
+        //开始第一张时，返回第四张
+        if (Math.abs(clickCount) === 0) {
+            // animate(ul, leftPosition, function() {
+            ul.style.left = -(ul.children.length - 1) * imgWidth + 'px'
+                // })
+            clickCount = -(ul.children.length - 1);
+            index = ul.children.length - 1
         }
-
         clickCount++
         index--
         var leftPosition = clickCount * imgWidth;
         animate(ul, leftPosition)
+        console.log('l-index' + index);
 
-        for (var i = 0; i < ul.children.length - 1; i++) {
+        //小圆点跟随变化
+        for (var i = 0; i < circle.children.length; i++) {
             circle.children[i].className = ''
+        }
+
+        //当到第五张时，直接返回第四张
+        if (index < 0) {
+            index = circle.children.length - 1
         }
         circle.children[index].className = 'current'
 
     })
+
+
+
 
     //4.自动播放
     function autoPlay(play) {
