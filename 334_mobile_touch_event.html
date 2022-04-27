@@ -43,6 +43,7 @@
         div.addEventListener('touchmove', function (e) {
             div.style.left = x + e.targetTouches[0].pageX - startX + 'px'
             div.style.top = y + e.targetTouches[0].pageY - startY + 'px'
+            e.preventDefault()//阻止屏幕滚动
         })
     </script>
 </body>
