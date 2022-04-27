@@ -6,10 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
 </head>
 
 <body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div')
 
+        var startX = 0
+        var startY = 0 //手指初始位置
+        var x = 0
+        var y = 0 //盒子初始位置
+
+        //触摸元素 获取手指初始坐标，同时获得盒子原来的位置
+        div.addEventListener('touchstart', function (e) {
+            x = div.offsetLeft
+            y = div.offsetTop
+            startX = e.targetTouches[0].pageX
+            startY = e.targetTouches[0].pageY
+        })
+
+        div.addEventListener('touchmove', function (e) {
+            div.style.left = x + e.targetTouches[0].pageX - startX + 'px'
+            div.style.top = y + e.targetTouches[0].pageY - startY + 'px'
+        })
+    </script>
 </body>
 
 </html>
