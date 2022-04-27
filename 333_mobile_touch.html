@@ -28,6 +28,8 @@
             //changedTouches 手指状态列表发生的变化 从无到有或者从有到无
 
             //因为一般都是触摸元素，所以targetTouches最常用
+            console.log(e.targetTouches[0]);
+            //可以得到触摸DOM元素的第一个手指的信息
         })
 
         div.addEventListener('touchmove', function() {
