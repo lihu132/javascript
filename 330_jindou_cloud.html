@@ -62,19 +62,28 @@
 
             cloud.style.width = lis[0].offsetWidth + 'px'
 
+            var current = 0;
+
             for (var i = 0; i < lis.length; i++) {
                 lis[i].addEventListener('mouseover', function() {
                     // cloud.style.left = this.offsetLeft + 'px'
                     animate(cloud, this.offsetLeft);
-                    setCurrent(this)
+
                 })
 
+                //鼠标离开回到起始位置
                 lis[i].addEventListener('mouseout', function() {
                     // cloud.style.left = this.offsetLeft + 'px'
-                    animate(cloud, 0)
-                    setCurrent(lis[0])
+                    animate(cloud, current)
                 })
+
+                lis[i].addEventListener('click', function() {
+                    current = this.offsetLeft
+                })
+
             }
+
+
 
 
             function setCurrent(obj) {
