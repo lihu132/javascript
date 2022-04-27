@@ -19,16 +19,27 @@
     <div></div>
     <script>
         var div = document.querySelector('div')
-        div.addEventListener('touchstart', function() {
+        div.addEventListener('touchstart', function(e) {
             console.log('我摸了你');
+            console.log(e);
+            //touches 正在触摸屏幕的所有手指的列表
+            //targetTouches 正在触摸当前DOM元素的所有手指的列表
+
+            //changedTouches 手指状态列表发生的变化 从无到有或者从有到无
+
+            //因为一般都是触摸元素，所以targetTouches最常用
         })
 
         div.addEventListener('touchmove', function() {
             console.log('我继续摸');
         })
 
-        div.addEventListener('touchend', function() {
+        div.addEventListener('touchend', function(e) {
             console.log('轻轻地我走了');
+            console.log(e);
+
+            //当手指离开屏幕时只，因为没有手指正在触摸， 就没有了touches和targetTouches列表
+            //有changedTouches有内容
         })
     </script>
 </body>
