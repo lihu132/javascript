@@ -11,31 +11,31 @@
             margin: 0;
             padding: 0;
         }
-
+        
         body {
             position: relative;
         }
-
+        
         .w {
             width: 80%;
             margin: 0 auto 10px;
         }
-
+        
         .header {
             height: 300px;
             background-color: pink;
         }
-
+        
         .banner {
             height: 500px;
             background-color: skyblue;
         }
-
+        
         .admin {
             height: 1000px;
             background-color: yellowgreen;
         }
-
+        
         .side-bar {
             position: absolute;
             top: 560px;
@@ -44,7 +44,7 @@
             height: 260px;
             background-color: pink;
         }
-
+        
         .side-bar span {
             display: none;
             position: absolute;
@@ -65,13 +65,15 @@
         var sideBar = document.querySelector('.side-bar')
         var banner = document.querySelector('.banner')
         var admin = document.querySelector('.admin')
+        var goBack = sideBar.querySelector('.goBack')
+
         var bannerTop = banner.offsetTop; //一定要写道滚动的外面
 
         var sliderBarTop = sideBar.offsetTop;
 
         var adminTop = admin.offsetTop;
 
-        document.addEventListener('scroll', function () {
+        document.addEventListener('scroll', function() {
 
             //当页面滚动大于等于320px ,sideBar改成固定定位
             console.log(window.pageYOffset);
@@ -89,8 +91,41 @@
             } else {
                 sideBar.children[0].style.display = 'none'
             }
-
         })
+
+        //3.当点击了返回顶部模块，就让窗口滚动到最上方
+        goBack.addEventListener('click', function() {
+            //里面的x和y，不跟单位，直接写数字即可
+            animate(window, 0)
+        });
+
+
+        //动画函数
+        function animate(obj, target, callback) {
+            console.log(callback); //callback = function(){} 调用的时候 callback()
+
+            clearInterval(obj.timer)
+            obj.timer = setInterval(function() {
+                var step = (target - window.pageYOffset) / 10
+                step = step > 0 ? Math.ceil(step) : Math.floor(step)
+                if (window.pageYOffset == target) {
+                    clearInterval(obj.timer)
+                        //回调函数写在定时器结束里面
+                        // if (callback) {
+                        //     callback()
+                        // }
+                    callback && callback();
+                } else {
+                    //缓动，更改步长
+                    //匀速动画 步长固定
+                    //缓动动画 变化步长
+                    //把步长值改为整数
+                    // obj.style.left = window.pageYOffset + step + 'px'
+                    window.scroll(0, window.pageYOffset + step)
+                }
+
+            }, 15)
+        }
     </script>
 </body>
 
