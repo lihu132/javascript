@@ -9,5 +9,10 @@ window.addEventListener('load', function() {
         var translatex = -index * w;
         ul.style.transition = 'all .3s'
         ul.style.transform = 'translateX(' + translatex + 'px)';
+
+        if (index == 3) {
+            ul.style.transform = 'translateX(0px)';
+            index = 0;
+        }
     }, 2000)
 })
