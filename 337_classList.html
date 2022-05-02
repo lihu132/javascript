@@ -6,17 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style></style>
+    <style>
+        .bg {
+            background-color: #000;
+        }
+    </style>
 </head>
 
 <body>
     <div class="one two"></div>
+    <button>开关灯</button>
     <script>
         //classList 返回元素类名
         var div = document.querySelector('div');
         // console.log(div.classList[0]);
-        //添加类名
+        //添加类名，在后面追加类名，不会覆盖以前的类名className
         div.classList.add('three')
+
+        //移除类名，直接删除
+        div.classList.remove('one')
+
+        //切换类名
+        var button = document.querySelector('button')
+        button.addEventListener('click', function() {
+            document.body.classList.toggle('bg')
+        })
     </script>
 </body>
 
