@@ -10,9 +10,10 @@ window.addEventListener('load', function() {
         ul.style.transition = 'all .3s'
         ul.style.transform = 'translateX(' + translatex + 'px)';
 
-        if (index == 3) {
-            ul.style.transform = 'translateX(0px)';
-            index = 0;
-        }
+        //过渡完成之后，再去执行，transitioned
+        ul.addEventListener('transitionend', function() {
+            //无缝滚动
+
+        })
     }, 2000)
 })
