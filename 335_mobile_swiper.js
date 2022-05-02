@@ -1,6 +1,7 @@
 window.addEventListener('load', function() {
     var focus = this.document.querySelector('.focus');
     var ul = focus.children[0];
+    var circle = this.document.querySelector('.circle')
 
     var w = focus.offsetWidth;
     var index = 0;
@@ -9,6 +10,9 @@ window.addEventListener('load', function() {
         var translatex = -index * w;
         ul.style.transition = 'all .3s'
         ul.style.transform = 'translateX(' + translatex + 'px)';
+
+
+
 
         //过渡完成之后，再去执行，transitioned
         ul.addEventListener('transitionend', function() {
@@ -31,5 +35,17 @@ window.addEventListener('load', function() {
             }
 
         })
+
+        console.log(index);
+        //小圆点跟随变化
+        for (var i = 0; i < circle.children.length; i++) {
+            circle.children[i].className = ''
+        }
+        circle.children[index].className = 'current'
     }, 2000)
+
+
+
+
+
 })
