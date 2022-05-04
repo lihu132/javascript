@@ -47,6 +47,7 @@ window.addEventListener('load', function () {
 
     //手指滑动轮播图
     var startX = 0;
+    var flag = false;
     ul.addEventListener('touchstart', function (e) {
         startX = e.targetTouches[0].pageX;
         //手指触摸时停止定时器
@@ -62,26 +63,45 @@ window.addEventListener('load', function () {
         //手指移动不需要动画效果
         ul.style.transition = 'none';
         ul.style.transform = 'translateX(' + translatex + 'px)';
+        flag = true;//如果用户手指移动过位置，再去判断
+        e.preventDefault();//阻止滚动屏幕
 
     })
 
     //手指离开后，根据移动距离判断是回弹还是播放上一张或者下一张
     ul.addEventListener('touchend', function (e) {
-        //如果移动距离大于50px,则播放上一张或下一张
-        if (Math.abs(moveX) > 50) {
-            //如果右滑，播放上一张moveX是正值
-            if (moveX > 0) {
-                index--;
+        if (flag) {
+            //如果移动距离大于50px,则播放上一张或下一张
+            if (Math.abs(moveX) > 50) {
+                //如果右滑，播放上一张moveX是正值
+                if (moveX > 0) {
+                    index--;
+                }
+                else {
+                    index++;
+                }
+                //如果左滑，播放下一张moveX是负值
+                var translatex = -index * w;
+                ul.style.transition = 'all .3s'
+                ul.style.transform = 'translateX(' + translatex + 'px)';
+
             }
             else {
-                index++;
+                //如果小于50px则回弹
+                var translatex = -index * w;
+                ul.style.transition = 'all .3s'
+                ul.style.transform = 'translateX(' + translatex + 'px)';
             }
-            //如果左滑，播放下一张moveX是负值
+
+        }
+        clearInterval(timer);
+        timer = setInterval(function () {
+            index++
             var translatex = -index * w;
             ul.style.transition = 'all .3s'
             ul.style.transform = 'translateX(' + translatex + 'px)';
 
-        }
+        }, 2000)
 
     })
 
