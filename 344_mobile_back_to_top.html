@@ -30,16 +30,21 @@
 </head>
 
 <body>
+    <div class="top">123</div>
     <div class="goBack">back to top</div>
     <script>
         var goBack = document.querySelector('.goBack')
 
-        document.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function() {
             if (window.pageYOffset >= 1000) {
                 goBack.style.display = 'block'
             } else {
                 goBack.style.display = 'none'
             }
+        })
+
+        goBack.addEventListener('click', function() {
+            window.scroll(0, 0)
         })
     </script>
 </body>
