@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            position: relative;
+            height: 3000px;
+        }
+        
+        .goBack {
+            display: none;
+            position: fixed;
+            right: 10px;
+            bottom: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="goBack">back to top</div>
+    <script>
+        var goBack = document.querySelector('.goBack')
+
+        document.addEventListener('scroll', function() {
+            if (window.pageYOffset >= 1000) {
+                goBack.style.display = 'block'
+            } else {
+                goBack.style.display = 'none'
+            }
+        })
+    </script>
+</body>
+
+</html>
