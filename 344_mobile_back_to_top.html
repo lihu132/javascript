@@ -11,12 +11,12 @@
             margin: 0;
             padding: 0;
         }
-        
+
         body {
             position: relative;
             height: 3000px;
         }
-        
+
         .goBack {
             display: none;
             position: fixed;
@@ -35,7 +35,7 @@
     <script>
         var goBack = document.querySelector('.goBack')
 
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             if (window.pageYOffset >= 1000) {
                 goBack.style.display = 'block'
             } else {
@@ -43,7 +43,7 @@
             }
         })
 
-        goBack.addEventListener('click', function() {
+        goBack.addEventListener('click', function () {
             window.scroll(0, 0)
         })
     </script>
