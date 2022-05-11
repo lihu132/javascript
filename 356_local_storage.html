@@ -9,7 +9,40 @@
 </head>
 
 <body>
+    <input type="text">
+    <button class="set">存储数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">删除数据</button>
+    <button class="del">清空所有数据</button>
+    <script>
+        var input = document.querySelector('input');
+        var set = document.querySelector('.set');
+        set.addEventListener('click', function () {
+            // 点击之后，存储表单值
+            var val = input.value;
+            localStorage.setItem('username', val);
 
+        })
+
+        var get = document.querySelector('.get');
+        get.addEventListener('click', function () {
+
+            console.log(localStorage.getItem('username'));
+
+        })
+
+        var remove = document.querySelector('.remove');
+        remove.addEventListener('click', function () {
+
+            localStorage.removeItem('username');
+        })
+
+        var del = document.querySelector('.del');
+        del.addEventListener('click', function () {
+            //清除所有的
+            localStorage.clear();
+        })
+    </script>
 </body>
 
 </html>
